@@ -1,0 +1,102 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F1||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Betpaminnelse
+Context=None|
+Groups=Start:1
+1|Tab|{Tab}|2|0|Send|||||1|
+2|Home|{Home}|1|0|Send|||||2|
+3|Delete|{Delete}|1|0|Send|||||2|
+4|Right|{Right}|3|0|Send|||||2|
+5|Delete|{Delete}|1|0|Send|||||2|
+6|Left Move & Click|535, 332 Left, 1|1|10|Click|||||2|
+7|Home|{Home}|1|100|Send|||||4|
+8|[Text]|%Clipboard% - Betalingspåminnelse`nBer om at utestående faktura blir betalt for å unngå gebyr og lagerleie.`nMvh Nettbil`n`n|1|300|SendRaw|||||6|
+9|Move|562, 517, 0|1|10|Click|||||15|
+
+[PMC Code v5.4.1]|F3||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Betsjekk
+Context=None|
+Groups=Start:1
+1|Left Click|Left, 2, |1|10|Click|||||1|
+2|[Assign Variable]|Clipboard := |1|0|Variable|Expression||||3|
+3|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||4|
+4|ClipWait|1|1|0|ClipWait|||||5|
+5|Evaluate Expression|ErrorLevel or StrLen(Clipboard) < 7|1|0|If_Statement|||||6|
+6|Return||1|0|Return|||||8|
+7|[End If]|EndIf|1|0|If_Statement|||||9|
+8|[Assign Variable]|Clipboard := RegExReplace(Clipboard, "\s")|1|0|Variable|Expression||||10|
+9|Left Move & Click|1820, 525 Left, 1|1|100|Click|||ADD COPY HERE||11|
+10|Control + a|{Control Down}{a}{Control Up}|1|0|Send|||||13|
+11|Control + v|{Control Down}{v}{Control Up}|1|0|Send|||||14|
+12|Left Move & Click|1793, 1024 Left, 1|1|100|Click|||||14|
+13|Move|2262, 485, 0|1|100|Click|||||16|
+
+[PMC Code v5.4.1]|F8||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Brreg
+Context=None|
+Groups=Start:1
+1|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||1|
+2|Left Move & Click|1970, 233 Left, 1|1|10|Click|||||2|
+3|Left Move & Click|2885, 668 Left, 1|1|300|Click|||||4|
+04|Left Move & Click|1986, 417 Left, 2|1|200|Click|||||6|
+5|Space|{Space}|1|100|Send|||||9|
+6|Control + v|{Control Down}{v}{Control Up}|1|300|Send|||||12|
+7|Tab|{Tab}|1|50|Send|||||14|
+8|1|{1}|1|50|Send|||||16|
+9|Left Move & Click|2422, 696 Left, 1|1|10|Click|||||18|
+
+[PMC Code v5.4.1]|F9||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Hentemelding
+Context=None|
+Groups=Start:1
+1|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||1|
+2|Left Move & Click|2548, 966 Left, 1|1|100|Click|||||2|
+3|[Text]|%Clipboard% hm`n|1|0|SendRaw|||||4|
+4|Move|280, 490, 0|1|10|Click|||||9|
+
+[PMC Code v5.4.1]|F10||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|SalgOgHentemelding
+Context=None|
+Groups=Start:1
+1|Left Click|Left, 2, |1|10|Click|||||1|
+2|[Assign Variable]|Clipboard := |1|0|Variable|Expression||||3|
+3|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||4|
+4|ClipWait|1|1|0|ClipWait|||||5|
+5|Evaluate Expression|ErrorLevel or StrLen(Clipboard) < 7|1|0|If_Statement|||||6|
+6|Return||1|0|Return|||||8|
+7|[End If]|EndIf|1|0|If_Statement|||||9|
+8|[Assign Variable]|Clipboard := RegExReplace(Clipboard, "\s")|1|0|Variable|Expression||||10|
+9|Left Move & Click|2279, 161 Left, 1|1|10|Click|||||11|
+10|[Text]|%Clipboard%`n|1|300|SendRaw|||||13|
+11|Left Move & Click|3595, 230 Left, 1|1|50|Click|||||19|
+12|Control + a|{Control Down}{a}{Control Up}|1|50|Send|||||21|
+13|[Text]|%Clipboard%`n|1|0|SendRaw|||||23|
+14|Move|352, 505, 0|1|10|Click|||||28|
+
+[PMC Code v5.4.1]|F12||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Macro6
+Context=None|
+Groups=Start:1
+1|Left Move & Click|2596, 407 Left, 1|1|10|Click|||||1|
+2|Left Move & Click|3151, 408 Left, 2|1|10|Click|||||3|
+3|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||5|
+4|[Assign Variable]|Orgnr := RegExMatch(Clipboard, "^\d")|1|0|Variable|Expression||||6|
+5|Compare Variables|Orgnr = 0|1|0|If_Statement|||||7|
+6|Left Move & Click|3164, 430 Left, 2|1|10|Click|||||9|
+7|Control + c|{Control Down}{c}{Control Up}|1|0|Send|||||11|
+8|Left Move & Click|2712, 635 Left, 1|1|10|Click|||||12|
+9|Control + v|{Control Down}{v}{Control Up}|1|0|Send|||||14|
+10|Enter|{Enter}|1|0|Send|||||15|
+11|[Else]|Else|1|0|If_Statement|||||15|
+12|Left Move & Click|2716, 627 Left, 1|1|10|Click|||||18|
+13|Control + v|{Control Down}{v}{Control Up}|1|0|Send|||||20|
+14|Enter|{Enter}|1|0|Send|||||21|
+15|[End If]|EndIf|1|0|If_Statement|||||21|
+16|Left Move & Click|3152, 408 Left, 2|1|10|Click|||||22|
+17|Control + c|{Control Down}{c}{Control Up}|1|200|Send|||||24|
+18|[Assign Variable]|Orgnr := RegExMatch(Clipboard, "^\d")|1|0|Variable|Expression||||26|
+19|Compare Variables|Orgnr = 0|1|0|If_Statement|||||27|
+20|Left Move & Click|3198, 455 Left, 2|1|200|Click|||||29|
+21|Control + c|{Control Down}{c}{Control Up}|1|200|Send|||||31|
+22|[Else]|Else|1|0|If_Statement|||||33|
+23|Left Move & Click|3192, 428 Left, 1|1|100|Click|||||36|
+24|Control + c|{Control Down}{c}{Control Up}|1|200|Send|||||38|
+25|[End If]|EndIf|1|0|If_Statement|||||40|
+26|Left Click, Continue, FoundX, FoundY, 1|2343, 395, 2904, 969, C:\Users\tzmh\AppData\Roaming\MacroCreator\Screenshots\Screen_20230106142848.png|1|300|ImageSearch||Screen|||41|
+27|Tab|{Tab}|1|200|Send|||||47|
+28|Control + v|{Control Down}{v}{Control Up}|1|0|Send|||||49|
+

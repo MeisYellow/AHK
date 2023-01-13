@@ -1,0 +1,23 @@
+﻿[PMC Globals]|None||
+[PMC Code v5.4.1]|F3||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Orgnr
+Context=None|
+Groups=Start:1
+1|Left Move & Click|2820, 324 Left, 1|1|10|Click|||SendRaw, %Orgnr%||1|
+2|Left Move & Click|2584, 403 Left, 1|1|10|Click|||SendRaw, %Orgnr%||3|
+3|Left Move & Click|3129, 608 Left, 1|1|10|Click||||||
+4|Control + a|{Control Down}{a}{Control Up}|1|0|Send|||SendRaw, %Orgnr%||5|
+5|Control + c|{Control Down}{c}{Control Up}|1|100|Send|||SendRaw, %Orgnr%||6|
+6|FileDelete|D:\Macros\Forhandler info.txt|1|0|FileDelete|||SendRaw, %Orgnr%||8|
+7|FileAppend|%Clipboard%, D:\Macros\Forhandler info.txt|1|0|FileAppend|||SendRaw, %Orgnr%||9|
+8|[CommentBlock]|INSERT TF CODE|0|1|CommentBlock|||SendRaw, %Orgnr%||10|
+9|Left Move & Click|2716, 628 Left, 1|1|10|Click|||SendRaw, %Orgnr%||13|
+10|[CommentBlock]|SendRaw, %Orgnr%|0|1|CommentBlock|||SendRaw, %Orgnr%||15|
+11|Enter|{Enter}|1|0|Send|||||18|
+12|Left Click, Continue, FoundX, FoundY, 1|2473, 691, 2634, 847, C:\Users\tzmh\AppData\Roaming\MacroCreator\Screenshots\Screen_20230113144023.png|1|0|ImageSearch||Screen|||19|
+13|Tab|{Tab}|1|0|Send|||||24|
+14|[CommentBlock]|SendRaw, %Tlf%|0|1|CommentBlock|||||25|
+
+[PMC Code v5.4.1]|F8||1|Screen,2,Fast,0,1,Input,-1,-1,1|1|Macro2
+Context=None|
+Groups=Start:1
+
